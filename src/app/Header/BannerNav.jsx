@@ -17,23 +17,17 @@ export default function BannerNav() {
         </div>
         <div className="flex items-center gap-10">
           <div className="hidden md:flex text-black justify-end sm:items-center space-x-4">
-            <a href="/iqac">IQAC</a>
-            <a
-              href="https://maps.app.goo.gl/HhbEn3qSWAFCeuKR7"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center"
-            >
+            <a href="#location" className="flex items-center">
               <MapPin size={16} className="text-blue-800 mr-1" />
-              <span>NH 44, Kompally, Secunderabad, Telangana - 500100.</span>
+              <span>Dubai, United Arab Emirates</span>
             </a>
-            <a href="mailto:info@ssim.ac.in" className="flex items-center">
+            <a href="mailto:info@landmarkeni.com" className="flex items-center">
               <Mail size={16} className="text-blue-800 mr-1" />
-              <span>info@ssim.ac.in</span>
+              <span>info@landmarkeni.com</span>
             </a>
-            <a href="tel:+91-040-27165451" className="flex items-center">
+            <a href="tel:+97150XXXXXXX" className="flex items-center">
               <Phone size={16} className="text-blue-800 mr-1" />
-              <span>040-2716 5451/53/54</span>
+              <span>+971 50XXX XXXX</span>
             </a>
           </div>
           <Drawer className="text-black bg-black" />

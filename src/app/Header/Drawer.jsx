@@ -64,7 +64,7 @@ const Drawer = () => {
       <SheetContent className="bg-white overflow-auto">
         <SheetHeader>
           <SheetTitle className="text-gray-900 text-2xl font-bold text-left">
-            SSIM
+            Landmark ENI
           </SheetTitle>
           <SheetDescription as="div" className="text-gray-800 text-left pt-5">
             <nav>

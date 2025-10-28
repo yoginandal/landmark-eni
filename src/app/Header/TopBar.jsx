@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { Instagram, Facebook, Youtube, Twitter, Linkedin } from "lucide-react";
-import { Button } from "../../components/ui/button"; // Adjust path as needed
+import { Button } from "../../components/ui/button";
 
 const TopBar = () => {
   const [iconsLoaded, setIconsLoaded] = useState([
@@ -14,7 +15,7 @@ const TopBar = () => {
 
   useEffect(() => {
     // Animate icons one by one with a delay
-    const timers = iconsLoaded.map((_, index) =>
+    const timers = [0, 1, 2, 3, 4].map((index) =>
       setTimeout(() => {
         setIconsLoaded((prev) => {
           const newState = [...prev];
@@ -26,23 +27,23 @@ const TopBar = () => {
 
     // Cleanup timeouts on component unmount
     return () => timers.forEach(clearTimeout);
-  }, []); // Empty dependency array ensures this runs only once
+  }, []);
 
   const socialIcons = [
     {
       icon: <Instagram className="w-4 h-4" />,
-      url: "https://www.instagram.com/imm_india/",
+      url: "#instagram",
     },
     {
       icon: <Linkedin className="w-4 h-4" />,
-      url: "https://www.linkedin.com/school/institute-of-marketing-and-management/?originalSubdomain=in",
+      url: "#linkedin",
     },
-    { icon: <Youtube className="w-4 h-4" />, url: "https://bit.ly/IMM-YT" },
+    { icon: <Youtube className="w-4 h-4" />, url: "#youtube" },
     {
       icon: <Facebook className="w-4 h-4" />,
-      url: "https://www.facebook.com/indiaimm",
+      url: "#facebook",
     },
-    { icon: <Twitter className="w-4 h-4" />, url: "https://x.com/imm_bschool" },
+    { icon: <Twitter className="w-4 h-4" />, url: "#twitter" },
   ];
 
   return (
@@ -80,46 +81,22 @@ const TopBar = () => {
         <div className="text-gray-600 justify-center items-center bg-slate-50 p-3 gap-2 rounded-full border-none shadow-sm flex">
           <div className="h-2 w-2 bg-pink-900 rounded-full animate-ping"></div>
           <marquee className="font-bold" behavior="scroll" direction="left">
-            Welcome to our International Conference! Join us for an amazing
-            experience.
+            Welcome to Landmark ENI - Your trusted partner for Middle East visa
+            and immigration services
           </marquee>
         </div>
         {/* Contact Info */}
         <div className="flex flex-wrap items-center gap-6 text-gray-600">
-          {/* <PulsatingButton
-            size="sm"
-            className="text-xs bg-black hover:bg-black/80"
-            pulseColor="#000"
-          >
-            International Conference
-          </PulsatingButton> */}
-          <a
-            href="https://apply.ssim.ac.in"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="/services/visa-ksa">
             <Button className="text-xs text-white bg-black hover:bg-black/80">
-              Apply Now
+              Apply for Visa
             </Button>
           </a>
-          <a
-            // href="https://payment.atomtech.in/payment/form/pay.action?mId=A95D13C110F64630E963122D5321258A"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="/contact-us">
             <Button className="text-xs text-white bg-black hover:bg-black/80">
-              Pay Fee
+              Contact Us
             </Button>
           </a>
-          {/* <a href="/blog">
-             <PulsatingButton
-               size="sm"
-               className="text-xs bg-black hover:bg-black/80"
-               pulseColor="#000"
-             >
-              Blogs
-             </PulsatingButton>
-           </a> */}
         </div>
       </div>
     </div>

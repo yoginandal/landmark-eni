@@ -1,213 +1,238 @@
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Sparkles, ArrowRight } from "lucide-react";
-import { Button } from "../../components/ui/button"; // Adjusted path
-import { Badge } from "../../components/ui/badge"; // Adjusted path
-import { cn } from "../../lib/utils"; // Adjusted path
+// eslint-disable-next-line no-unused-vars
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ArrowRight,
+  FileText,
+  Info,
+  Library,
+  Globe,
+} from "lucide-react";
+import { cn } from "../../lib/utils";
+import WordFadeIn from "../../components/ui/word-fade-in";
+import WordPullUp from "../../components/ui/word-pull-up";
 
 // --- Data for the slides ---
 const slides = [
   {
-    badge: "Excellence in Education",
-    title: "Empowering Tomorrow's Innovators",
-    highlight: "Today",
-    subtitle: "Join a community of achievers shaping the future",
-    stats: { value: "95%", label: "Placement Success" },
+    title: "Your Gateway to Middle East Careers",
+    subtitle:
+      "Connecting Indian professionals with premier opportunities across UAE, Saudi Arabia, Qatar, and beyond. Your dream career awaits.",
+    ctaText: "Explore Opportunities",
+    bgImage:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=2000&auto=format&fit=crop&q=80", // Dubai skyline
+  },
+  {
+    title: "Seamless Immigration Services",
+    subtitle:
+      "Expert visa processing, work permits, and documentation support. We handle the complexities while you focus on your future.",
     ctaText: "Start Your Journey",
     bgImage:
-      "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=2000&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=2000&auto=format&fit=crop&q=80", // Middle East business professionals
   },
   {
-    badge: "World-Class Infrastructure",
-    title: "Modern Facilities for Future",
-    highlight: "Leaders",
-    subtitle: "State-of-the-art learning environments designed for excellence",
-    stats: { value: "500+", label: "Industry Partners" },
-    ctaText: "Explore Campus",
+    title: "Trusted by Thousands of Indian Professionals",
+    subtitle:
+      "From application to arrival, our dedicated team ensures a smooth transition to your new life in the Middle East.",
+    ctaText: "Get Started Today",
     bgImage:
-      "https://images.unsplash.com/photo-1562774053-701939374585?w=2000&auto=format&fit=crop&q=80",
-  },
-  {
-    badge: "Industry Integration",
-    title: "An Industry Integrated Learning",
-    highlight: "Campus",
-    subtitle: "Bridge the gap between education and professional success",
-    stats: { value: "#1", label: "Ranked Institution" },
-    ctaText: "Apply Now",
-    bgImage:
-      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=2000&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1569098644584-210bcd375b59?w=2000&auto=format&fit=crop&q=80", // Airport/Travel scene
   },
 ];
 
-export default function EducationHero() {
+// --- Data for the features ---
+const features = [
+  {
+    icon: <FileText size={28} className="text-red-600" />,
+    title: "Online Visa Application",
+    description: "A streamlined, secure online portal for all your visa needs.",
+    href: "#",
+  },
+  {
+    icon: <Info size={28} className="text-red-600" />,
+    title: "Visa Information",
+    description:
+      "Access detailed requirements and FAQs for all visa categories.",
+    href: "#",
+  },
+  {
+    icon: <Library size={28} className="text-red-600" />,
+    title: "Immigration Resources",
+    description: "Utilize our comprehensive guides and document checklists.",
+    href: "#",
+  },
+  {
+    icon: <Globe size={28} className="text-red-600" />,
+    title: "Online Passport Services",
+    description: "Apply for or renew your passport from anywhere, anytime.",
+    href: "#",
+  },
+];
+
+export default function ImmigrationHero() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [slideKey, setSlideKey] = useState(0);
 
   useEffect(() => {
-    if (!isAutoPlaying) return;
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
+      setSlideKey((prev) => prev + 1);
+    }, 7000);
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000); // Resume auto-play after 10s
-  };
+  }, []);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 8000);
+    setSlideKey((prev) => prev + 1);
   };
-
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 8000);
+    setSlideKey((prev) => prev + 1);
   };
 
-  const slide = slides[currentSlide];
-
   return (
-    <section
-      className="relative h-[95vh] min-h-[700px] w-full overflow-hidden bg-slate-950"
-      onMouseEnter={() => setIsAutoPlaying(false)}
-      onMouseLeave={() => setIsAutoPlaying(true)}
-    >
-      {/* Background Images */}
-      <div className="absolute inset-0">
-        {slides.map((s, index) => (
-          <div
-            key={index}
-            className={cn(
-              "absolute inset-0 transition-all duration-1000",
-              index === currentSlide
-                ? "opacity-100 scale-100"
-                : "opacity-0 scale-105"
-            )}
-          >
+    <div className="relative bg-gray-100">
+      {/* Hero Section */}
+      <section className="relative h-[80vh] min-h-[700px] lg:h-[90vh] w-full flex items-center justify-center text-white overflow-hidden">
+        {/* Background Images */}
+        <div className="absolute inset-0">
+          {slides.map((s, index) => (
             <div
-              className="absolute inset-0 bg-cover bg-center"
+              key={index}
+              className={cn(
+                "absolute inset-0 bg-cover bg-center transition-opacity duration-1000",
+                index === currentSlide ? "opacity-100" : "opacity-0"
+              )}
               style={{ backgroundImage: `url(${s.bgImage})` }}
             />
-            <div className="absolute inset-0 bg-linear-to-br from-slate-950/80 via-slate-950/50 to-transparent" />
-            <div className="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent" />
-          </div>
-        ))}
-      </div>
+          ))}
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-      </div>
-
-      {/* Navigation Arrows */}
-      <Button
-        onClick={prevSlide}
-        variant="ghost"
-        size="icon"
-        className="absolute left-4 md:left-8 top-1/2 z-30 -translate-y-1/2 h-12 w-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:scale-110 transition-all"
-      >
-        <ChevronLeft className="h-5 w-5 text-white" />
-      </Button>
-      <Button
-        onClick={nextSlide}
-        variant="ghost"
-        size="icon"
-        className="absolute right-4 md:right-8 top-1/2 z-30 -translate-y-1/2 h-12 w-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:scale-110 transition-all"
-      >
-        <ChevronRight className="h-5 w-5 text-white" />
-      </Button>
-
-      {/* Main Content */}
-      <div className="relative z-20 h-full flex items-center">
-        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-          <div className="max-w-3xl space-y-6 md:space-y-8">
-            {/* Badge */}
-            <div
-              className={cn(
-                "inline-block transition-all duration-700",
-                "animate-in fade-in slide-in-from-bottom-4"
-              )}
+        {/* Hero Content */}
+        <div className="relative z-10 text-center px-4">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={slideKey}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
             >
-              <Badge
-                variant="outline"
-                className="px-4 py-2 bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 transition-all"
-              >
-                <Sparkles className="w-3.5 h-3.5 mr-2" />
-                {slide.badge}
-              </Badge>
-            </div>
+              <WordPullUp
+                words={slides[currentSlide].title}
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white"
+              />
 
-            {/* Title */}
-            <div className="space-y-2">
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
-                <span className="block text-white drop-shadow-2xl">
-                  {slide.title}
-                </span>
-                <span className="block bg-linear-to-r from-emerald-400 via-emerald-500 to-amber-400 bg-clip-text text-transparent drop-shadow-2xl">
-                  {slide.highlight}
-                </span>
-              </h1>
-            </div>
-
-            {/* Subtitle */}
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">
-              {slide.subtitle}
-            </p>
-
-            {/* Stats Card */}
-            <div className="inline-flex items-center gap-4 px-6 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl">
-              <div className="text-5xl md:text-6xl font-bold bg-linear-to-br from-emerald-400 to-amber-400 bg-clip-text text-transparent">
-                {slide.stats.value}
+              <div className="mt-6 max-w-3xl mx-auto">
+                <WordFadeIn
+                  words={slides[currentSlide].subtitle}
+                  delay={0.08}
+                  className="text-lg md:text-xl text-gray-200 leading-relaxed"
+                />
               </div>
-              <div className="border-l border-white/20 pl-4">
-                <p className="text-sm text-white/60 uppercase tracking-wider">
-                  {slide.stats.label}
-                </p>
-              </div>
-            </div>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4">
-              <Button
-                size="lg"
-                className="group bg-linear-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:shadow-emerald-500/40 transition-all duration-300 px-8 h-12 md:h-14 text-base md:text-lg"
+              <motion.a
+                href="#"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  delay: 1.2,
+                  duration: 0.5,
+                  type: "spring",
+                  stiffness: 200,
+                }}
+                className="mt-10 inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-red-600 rounded-lg shadow-xl hover:bg-red-700 hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
               >
-                {slide.ctaText}
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all px-8 h-12 md:h-14 text-base md:text-lg"
+                {slides[currentSlide].ctaText}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </motion.a>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 lg:left-8 top-1/2 z-20 -translate-y-1/2 p-3 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/30 transition-all duration-300 group"
+        >
+          <ChevronLeft
+            size={28}
+            className="group-hover:-translate-x-0.5 transition-transform duration-300"
+          />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 lg:right-8 top-1/2 z-20 -translate-y-1/2 p-3 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/30 transition-all duration-300 group"
+        >
+          <ChevronRight
+            size={28}
+            className="group-hover:translate-x-0.5 transition-transform duration-300"
+          />
+        </button>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setCurrentSlide(index);
+                setSlideKey((prev) => prev + 1);
+              }}
+              className={cn(
+                "h-2 rounded-full transition-all duration-300",
+                index === currentSlide
+                  ? "w-8 bg-white"
+                  : "w-2 bg-white/40 hover:bg-white/60"
+              )}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Overlapping Features Section */}
+      <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 -mt-32">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {features.map((feature, index) => (
+            <motion.a
+              key={feature.title}
+              href={feature.href}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                delay: index * 0.15,
+                duration: 0.5,
+                type: "spring",
+                stiffness: 100,
+              }}
+              className="group block bg-white rounded-xl p-8 shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-red-500/20 border border-gray-100"
+            >
+              <motion.div
+                className="flex items-center justify-center h-16 w-16 rounded-full bg-red-100 mb-6 transition-transform duration-300 group-hover:scale-110"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
               >
-                Explore Programs
-              </Button>
-            </div>
-          </div>
+                {feature.icon}
+              </motion.div>
+              <h3 className="text-xl font-bold text-gray-900">
+                {feature.title}
+              </h3>
+              <p className="mt-2 text-gray-600">{feature.description}</p>
+              <div className="mt-6 font-semibold text-red-600 flex items-center">
+                Apply Now
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </div>
+            </motion.a>
+          ))}
         </div>
       </div>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={cn(
-              "transition-all duration-300 rounded-full",
-              index === currentSlide
-                ? "w-8 h-2 bg-linear-to-r from-emerald-400 to-amber-400"
-                : "w-2 h-2 bg-white/40 hover:bg-white/60"
-            )}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
-    </section>
+      {/* Add some padding at the bottom of the whole component */}
+      <div className="h-32 bg-gray-100"></div>
+    </div>
   );
 }
