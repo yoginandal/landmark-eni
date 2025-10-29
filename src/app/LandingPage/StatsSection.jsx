@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
-import { useRef } from "react";
+import { ArrowRight } from "lucide-react";
 
-function AnimatedCounter({ value, duration = 2 }) {
+// Reusable Animated Counter Component (no changes needed)
+function AnimatedCounter({ value }) {
   const ref = useRef(null);
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, {
-    damping: 50,
+    damping: 60,
     stiffness: 100,
   });
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -32,36 +33,36 @@ const stats = [
     value: 4000,
     label: "Happy Clients",
     suffix: "+",
-    description: "Satisfied customers worldwide",
+    description: "Across 70+ countries worldwide",
   },
   {
     value: 3000,
     label: "Visas Processed",
     suffix: "+",
-    description: "Successful applications",
+    description: "With a 99.8% success rate",
   },
   {
     value: 70,
     label: "Countries Coverage",
     suffix: "+",
-    description: "Global network reach",
+    description: "Extensive global network reach",
   },
   {
     value: 30,
-    label: "Years Experience",
+    label: "Years of Experience",
     suffix: "+",
-    description: "Industry expertise",
+    description: "Combined industry expertise",
   },
 ];
 
 export default function StatsSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 relative overflow-hidden">
-      {/* Animated background patterns */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-300 rounded-full blur-3xl" />
-      </div>
+    <section className="relative py-24 bg-linear-to-b from-white via-gray-50 to-white overflow-hidden">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 h-full w-full bg-white bg-[linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] bg-size-[30px_30px] opacity-20 pointer-events-none" />
+      {/* Soft background glows */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-red-100 rounded-full blur-3xl opacity-50" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-100 rounded-full blur-3xl opacity-50" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -71,76 +72,64 @@ export default function StatsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
             Our Impact in Numbers
           </h2>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Trusted by thousands of clients across the globe
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Trusted by thousands of clients and partners across the globe for
+            our commitment and results.
           </p>
         </motion.div>
-
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.8, y: 50 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
                 duration: 0.5,
                 delay: index * 0.1,
-                type: "spring",
-                stiffness: 100,
+                ease: "easeOut",
               }}
-              className="text-center group"
+              className="group"
             >
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 shadow-xl"
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                className="text-center bg-white/60 backdrop-blur-md rounded-2xl p-8 border border-gray-200/80 transition-shadow duration-300 hover:shadow-2xl shadow-lg"
               >
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">
+                <div className="text-5xl md:text-6xl font-bold text-gray-900 mb-2">
                   <AnimatedCounter value={stat.value} />
-                  {stat.suffix}
+                  <span className="text-red-600">{stat.suffix}</span>
                 </div>
-                <div className="text-xl font-semibold text-blue-100 mb-2">
+                <div className="text-lg font-semibold text-gray-800 mb-2">
                   {stat.label}
                 </div>
-                <div className="text-sm text-blue-200">{stat.description}</div>
+                <div className="text-sm text-gray-600">{stat.description}</div>
               </motion.div>
             </motion.div>
           ))}
         </div>
-
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="text-center mt-16"
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="text-center mt-20"
         >
-          <p className="text-xl text-white mb-6">
+          <p className="text-xl text-gray-800 mb-6">
             Ready to join thousands of satisfied clients?
           </p>
-          <a
+          <motion.a
             href="/contact-us"
-            className="inline-flex items-center px-8 py-4 bg-white text-blue-700 font-semibold rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="group inline-flex items-center px-8 py-4 bg-linear-to-r from-red-600 to-red-700 text-white font-bold rounded-lg shadow-lg shadow-red-500/40 hover:shadow-xl hover:shadow-red-600/60 transition-all duration-300"
           >
             Get Started Today
-            <svg
-              className="ml-2 w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </a>
+            <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+          </motion.a>
         </motion.div>
       </div>
     </section>

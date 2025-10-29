@@ -47,7 +47,7 @@ const TopBar = () => {
   ];
 
   return (
-    <div className="hidden px-5 sm:px-8 py-3 bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 md:block">
+    <div className="hidden px-5 sm:px-8 py-3 bg-linear-to-r from-blue-200 via-blue-50 to-blue-200 md:block">
       <div className="flex flex-wrap items-center justify-between mx-auto text-sm">
         {/* Social Links */}
         <div className="flex items-center gap-4">

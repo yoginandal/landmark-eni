@@ -13,10 +13,11 @@ export default function Home() {
   return (
     <div>
       <HeroSlider />
-      <ServicesGrid />
+
       <AboutSection />
       <StatsSection />
       <KeyServices />
+      <ServicesGrid />
       <TopDestinations />
       <TestimonialsSection />
       <PartnersSection />

@@ -1,23 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
 import WordPullUp from "../../components/ui/word-pull-up";
-import { CheckCircle2, Globe, Users2, Award } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 
+// Updated highlights to focus on the numbers
 const highlights = [
   {
-    icon: Globe,
-    title: "Global Network",
-    description: "Operating in 70+ countries worldwide",
+    number: "70+",
+    title: "Countries with a Global Network",
   },
   {
-    icon: Users2,
-    title: "Expert Team",
-    description: "30 years of combined industry experience",
+    number: "30+",
+    title: "Years of Combined Experience",
   },
   {
-    icon: Award,
-    title: "Proven Track Record",
-    description: "4,000+ successful visa applications",
+    number: "4,000+",
+    title: "Successful Visa Applications",
   },
 ];
 
@@ -25,148 +23,119 @@ const features = [
   "Comprehensive visa processing services",
   "Expert guidance on immigration requirements",
   "Fast and efficient document processing",
-  "24/7 customer support availability",
-  "Strategic offices across UAE, UK, Australia, India, Saudi Arabia, and Pakistan",
-  "Compliance with all local regulations",
+  "Corporate governance & compliance support",
+  "Strategic offices across key global hubs",
 ];
 
 export default function AboutSection() {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="relative py-24 bg-black overflow-hidden">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 h-full w-full bg-transparent bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-size-[40px_40px] pointer-events-none" />
+      {/* Background Radial Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-linear-to-br from-red-950/50 to-black rounded-full blur-[150px] opacity-20" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
           >
-            <div className="mb-6">
+            <div className="mb-8">
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4"
+                transition={{ duration: 0.6 }}
+                className="inline-block px-4 py-1.5 border border-red-800 bg-red-950/50 text-red-400 rounded-full text-sm font-semibold mb-6"
               >
                 About Landmark ENI
               </motion.span>
 
               <WordPullUp
-                words="Empowering Global Mobility for Over 30 Years"
-                className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight"
+                words="Empowering Global Mobility With Decades of Expertise"
+                className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight"
               />
             </div>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="text-lg text-gray-600 mb-8 leading-relaxed"
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="text-lg text-gray-400 mb-8 leading-relaxed"
             >
-              Landmark ENI is your trusted partner in delivering comprehensive
-              corporate solutions, covering global mobility, visa processing,
-              government relations services, and recruitment services. With
-              strategically positioned offices and a network spanning over 70
-              countries, we have the world covered.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="text-lg text-gray-600 mb-8 leading-relaxed"
-            >
-              Whether it's visa processing for Saudi Arabia or any other country
-              across the globe, preparation of Premium and Golden Visas, company
-              formations, or corporate governance support - Landmark ENI is here
-              to support you with confidence and expertise.
+              Landmark ENI is your trusted partner for corporate solutions, from
+              global mobility and visa processing to government relations and
+              recruitment. With a network spanning over 70 countries, we have
+              the world covered.
             </motion.p>
 
             {/* Feature List */}
-            <div className="space-y-3 mb-8">
+            <div className="space-y-4 mb-10">
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.5 + index * 0.1 }}
-                  className="flex items-start gap-3"
+                  transition={{ delay: 0.6 + index * 0.1 }}
+                  className="flex items-center gap-3"
                 >
-                  <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{feature}</span>
+                  <CheckCircle2 className="w-5 h-5 text-red-600 flex-shrink-0" />
+                  <span className="text-gray-300">{feature}</span>
                 </motion.div>
               ))}
             </div>
 
             <motion.a
-              href="/about/about-us"
+              href="/about-us"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.8 }}
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+              transition={{ delay: 1, duration: 0.6 }}
+              className="group inline-flex items-center px-8 py-4 bg-linear-to-r from-red-700 to-red-800 text-white font-bold rounded-lg shadow-lg shadow-red-900/40 hover:shadow-xl hover:shadow-red-800/60 hover:scale-105 transition-all duration-300"
             >
               Learn More About Us
-              <svg
-                className="ml-2 w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
+              <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </motion.a>
           </motion.div>
 
           {/* Right Content - Highlights Cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
-            <div className="space-y-6">
-              {highlights.map((highlight, index) => {
-                const Icon = highlight.icon;
-                return (
-                  <motion.div
-                    key={highlight.title}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.2 }}
-                    whileHover={{ scale: 1.05 }}
-                    className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 shadow-lg border border-blue-100"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl shadow-lg">
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">
-                          {highlight.title}
-                        </h3>
-                        <p className="text-gray-600">{highlight.description}</p>
-                      </div>
+          <div className="relative">
+            <div className="space-y-8">
+              {highlights.map((highlight, index) => (
+                <motion.div
+                  key={highlight.title}
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: 0.2 + index * 0.2,
+                    duration: 0.6,
+                    ease: "easeOut",
+                  }}
+                  className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 shadow-lg"
+                >
+                  <div className="flex items-center gap-6">
+                    <div className="flex-shrink-0">
+                      <p className="text-5xl font-extrabold text-transparent bg-clip-text bg-linear-to-b from-red-500 to-red-700">
+                        {highlight.number}
+                      </p>
                     </div>
-                  </motion.div>
-                );
-              })}
+                    <div className="border-l border-gray-700 pl-6">
+                      <h3 className="text-lg font-semibold text-white">
+                        {highlight.title}
+                      </h3>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-
-            {/* Decorative element */}
-            <div className="absolute -z-10 top-1/2 right-0 w-72 h-72 bg-gradient-to-br from-blue-200 to-purple-200 rounded-full blur-3xl opacity-20 -translate-y-1/2" />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
