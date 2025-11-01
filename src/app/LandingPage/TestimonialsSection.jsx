@@ -11,7 +11,7 @@ const testimonials = [
       "I would like to express my sincere appreciation for your exceptional effort and dedication in handling the matter. Your commitment and hard work have been truly remarkable, and we are extremely grateful for your contributions.",
     rating: 5,
     image:
-      "https://ui-avatars.com/api/?name=Khalaf+Alshabib&size=200&background=3b82f6&color=fff",
+      "https://ui-avatars.com/api/?name=Khalaf+Alshabib&size=200&background=dc2626&color=fff",
   },
   {
     name: "Sulaiman Alshuwaib",
@@ -21,7 +21,7 @@ const testimonials = [
       "I would like to express our heartfelt appreciation for the dedication and efforts you have put into the Musleh application. Your commitment on this journey will not go unnoticed, and your contributions are truly valued.",
     rating: 5,
     image:
-      "https://ui-avatars.com/api/?name=Sulaiman+Alshuwaib&size=200&background=8b5cf6&color=fff",
+      "https://ui-avatars.com/api/?name=Sulaiman+Alshuwaib&size=200&background=6b7280&color=fff",
   },
   {
     name: "Hassan Alzahrani",
@@ -31,7 +31,7 @@ const testimonials = [
       "This is amazing and super fast service!! Thank you very much Landmark ENI Team. The professionalism and efficiency exceeded all our expectations.",
     rating: 5,
     image:
-      "https://ui-avatars.com/api/?name=Hassan+Alzahrani&size=200&background=10b981&color=fff",
+      "https://ui-avatars.com/api/?name=Hassan+Alzahrani&size=200&background=dc2626&color=fff",
   },
   {
     name: "Hans Juergen Gerhards",
@@ -41,7 +41,7 @@ const testimonials = [
       "I appreciate the exceptional attention and service very much, and I recommend the excellent visa service for further recruitment. The team's dedication to quality is outstanding.",
     rating: 5,
     image:
-      "https://ui-avatars.com/api/?name=Hans+Gerhards&size=200&background=f59e0b&color=fff",
+      "https://ui-avatars.com/api/?name=Hans+Gerhards&size=200&background=6b7280&color=fff",
   },
 ];
 
@@ -83,10 +83,10 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="py-20 bg-linear-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-20" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-200 rounded-full blur-3xl opacity-20" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-red-900/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gray-700/20 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -96,13 +96,13 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
+          <span className="inline-block px-4 py-2 bg-red-600/20 backdrop-blur-sm border border-red-500/30 text-red-400 rounded-full text-sm font-semibold mb-4">
             Client Testimonials
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Trusted by leading organizations across the Middle East
           </p>
         </motion.div>
@@ -124,11 +124,11 @@ export default function TestimonialsSection() {
                 }}
                 className="absolute inset-0"
               >
-                <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 h-full border border-gray-100">
+                <div className="bg-slate-800 rounded-3xl shadow-2xl p-8 md:p-12 h-full border border-red-900/30">
                   <div className="flex flex-col md:flex-row gap-8 items-center md:items-start h-full">
                     {/* Quote Icon */}
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-linear-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+                      <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl flex items-center justify-center shadow-lg">
                         <Quote className="w-8 h-8 text-white" />
                       </div>
                     </div>
@@ -148,7 +148,7 @@ export default function TestimonialsSection() {
                       </div>
 
                       {/* Testimonial Text */}
-                      <blockquote className="text-xl md:text-2xl text-gray-700 italic mb-6 leading-relaxed">
+                      <blockquote className="text-xl md:text-2xl text-gray-200 italic mb-6 leading-relaxed">
                         "{testimonials[currentIndex].content}"
                       </blockquote>
 
@@ -157,16 +157,16 @@ export default function TestimonialsSection() {
                         <img
                           src={testimonials[currentIndex].image}
                           alt={testimonials[currentIndex].name}
-                          className="w-16 h-16 rounded-full border-4 border-blue-100"
+                          className="w-16 h-16 rounded-full border-4 border-red-900/30"
                         />
                         <div>
-                          <div className="font-bold text-gray-900 text-lg">
+                          <div className="font-bold text-white text-lg">
                             {testimonials[currentIndex].name}
                           </div>
-                          <div className="text-gray-600">
+                          <div className="text-gray-400">
                             {testimonials[currentIndex].role}
                           </div>
-                          <div className="text-sm text-blue-600 font-semibold">
+                          <div className="text-sm text-red-400 font-semibold">
                             {testimonials[currentIndex].company}
                           </div>
                         </div>
@@ -181,15 +181,15 @@ export default function TestimonialsSection() {
           {/* Navigation Arrows */}
           <button
             onClick={() => paginate(-1)}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-16 p-3 rounded-full bg-white shadow-xl hover:shadow-2xl hover:bg-blue-50 transition-all duration-300 group z-20"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-16 p-3 rounded-full bg-slate-800 border border-red-900/30 shadow-xl hover:shadow-2xl hover:bg-red-900/30 transition-all duration-300 group z-20"
           >
-            <ChevronLeft className="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors" />
+            <ChevronLeft className="w-6 h-6 text-gray-300 group-hover:text-white transition-colors" />
           </button>
           <button
             onClick={() => paginate(1)}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-16 p-3 rounded-full bg-white shadow-xl hover:shadow-2xl hover:bg-blue-50 transition-all duration-300 group z-20"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-16 p-3 rounded-full bg-slate-800 border border-red-900/30 shadow-xl hover:shadow-2xl hover:bg-red-900/30 transition-all duration-300 group z-20"
           >
-            <ChevronRight className="w-6 h-6 text-gray-700 group-hover:text-blue-600 transition-colors" />
+            <ChevronRight className="w-6 h-6 text-gray-300 group-hover:text-white transition-colors" />
           </button>
 
           {/* Dots Indicator */}
@@ -203,8 +203,8 @@ export default function TestimonialsSection() {
                 }}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? "w-8 bg-blue-600"
-                    : "w-2 bg-gray-300 hover:bg-gray-400"
+                    ? "w-8 bg-red-600"
+                    : "w-2 bg-gray-600 hover:bg-gray-500"
                 }`}
               />
             ))}

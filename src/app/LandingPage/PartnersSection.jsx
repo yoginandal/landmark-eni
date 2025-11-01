@@ -1,81 +1,79 @@
 import React from "react";
-import { Building2 } from "lucide-react";
-// Assuming you have a local Button component
-// import { Button } from "./Button";
+import { Globe } from "lucide-react";
 
-// Using publicly accessible logo URLs
-const companyLogos = [
+// Middle East focused country flags - primary destinations for Landmark ENI
+const countryPartners = [
   {
-    name: "Amazon",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+    name: "Saudi Arabia",
+    logo: "https://flagcdn.com/w320/sa.png",
   },
   {
-    name: "Microsoft",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+    name: "United Arab Emirates",
+    logo: "https://flagcdn.com/w320/ae.png",
   },
   {
-    name: "Google",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+    name: "Qatar",
+    logo: "https://flagcdn.com/w320/qa.png",
   },
   {
-    name: "IBM",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
+    name: "Oman",
+    logo: "https://flagcdn.com/w320/om.png",
   },
   {
-    name: "Apple",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+    name: "Kuwait",
+    logo: "https://flagcdn.com/w320/kw.png",
   },
   {
-    name: "Dell",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/4/48/Dell_Logo.svg",
+    name: "Bahrain",
+    logo: "https://flagcdn.com/w320/bh.png",
   },
   {
-    name: "Intel",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg",
+    name: "Jordan",
+    logo: "https://flagcdn.com/w320/jo.png",
   },
   {
-    name: "Adobe",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Adobe_Corporate_logo.svg/2560px-Adobe_Corporate_logo.svg.png",
+    name: "Lebanon",
+    logo: "https://flagcdn.com/w320/lb.png",
   },
   {
-    name: "Oracle",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg",
+    name: "Egypt",
+    logo: "https://flagcdn.com/w320/eg.png",
   },
   {
-    name: "SAP",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg",
+    name: "Turkey",
+    logo: "https://flagcdn.com/w320/tr.png",
   },
   {
-    name: "Accenture",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg",
+    name: "Iraq",
+    logo: "https://flagcdn.com/w320/iq.png",
   },
   {
-    name: "Deloitte",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Logo_of_Deloitte.svg/2560px-Logo_of_Deloitte.svg.png",
+    name: "Iran",
+    logo: "https://flagcdn.com/w320/ir.png",
   },
   {
-    name: "Cisco",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg",
+    name: "Pakistan",
+    logo: "https://flagcdn.com/w320/pk.png",
   },
   {
-    name: "HP",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/a/ad/HP_logo_2012.svg",
+    name: "Indonesia",
+    logo: "https://flagcdn.com/w320/id.png",
   },
   {
-    name: "Sony",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Sony_logo.svg",
+    name: "Bangladesh",
+    logo: "https://flagcdn.com/w320/bd.png",
   },
   {
-    name: "Toshiba",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Toshiba_logo.svg/2560px-Toshiba_logo.svg.png",
+    name: "Philippines",
+    logo: "https://flagcdn.com/w320/ph.png",
   },
   {
-    name: "Samsung",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Samsung_wordmark.svg",
+    name: "Nepal",
+    logo: "https://flagcdn.com/w320/np.png",
   },
   {
-    name: "LG",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/2/20/LG_symbol.svg",
+    name: "Sri Lanka",
+    logo: "https://flagcdn.com/w320/lk.png",
   },
 ];
 
@@ -83,27 +81,27 @@ export default function PartnersSection() {
   return (
     <section className="relative py-16 md:py-20 bg-white">
       {/* Background Decoration */}
-      <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-green-100 rounded-full blur-3xl opacity-30" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-yellow-100 rounded-full blur-3xl opacity-30" />
+      <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-red-100 rounded-full blur-3xl opacity-30" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-gray-200 rounded-full blur-3xl opacity-30" />
 
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-20 items-start">
           {/* --- LEFT SIDE: STICKY HEADING --- */}
           <div className="lg:col-span-2 lg:self-stretch">
             <div className="sticky top-28 space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 rounded-full">
-                <Building2 className="w-4 h-4 text-green-700" />
-                <span className="text-sm font-semibold text-green-700">
-                  Placement Partners
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-100 rounded-full">
+                <Globe className="w-4 h-4 text-red-700" />
+                <span className="text-sm font-semibold text-red-700">
+                  Middle East Specialists
                 </span>
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-slate-700 leading-tight">
-                Work With
+                Your Gateway
                 <br />
-                <span className="text-slate-900 font-bold">Our Best</span>
+                <span className="text-slate-900 font-bold">To The</span>
                 <br />
-                <span className="text-green-600 font-bold">Recruiters</span>
-                <span className="inline-block w-4 h-4 rounded-full bg-yellow-500 ml-2 align-middle animate-pulse" />
+                <span className="text-red-600 font-bold">Middle East</span>
+                <span className="inline-block w-4 h-4 rounded-full bg-gray-500 ml-2 align-middle animate-pulse" />
               </h2>
             </div>
           </div>
@@ -113,62 +111,68 @@ export default function PartnersSection() {
             {/* Description, Button, and Stats Section */}
             <div className="space-y-8 text-left">
               <p className="text-xl text-slate-600 leading-relaxed max-w-xl">
-                Over the period of 5 batches, more than{" "}
-                <span className="font-bold text-green-600">200 recruiters</span>{" "}
-                have participated in on-campus & off-campus processes and
-                selected{" "}
-                <span className="font-bold text-green-600">
-                  90% of the eligible
+                Landmark ENI specializes in Middle East work visas and
+                immigration, having successfully processed{" "}
+                <span className="font-bold text-red-600">
+                  4,000+ applications
                 </span>{" "}
-                students.
+                for Saudi Arabia, UAE, Qatar, Oman, Kuwait, and other GCC
+                nations with{" "}
+                <span className="font-bold text-red-600">
+                  95% approval success
+                </span>
+                .
               </p>
               <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
-                There is an addition of{" "}
-                <span className="font-bold text-yellow-600">
-                  35+ organisations
+                From{" "}
+                <span className="font-bold text-gray-700">
+                  work permits and employment visas
                 </span>{" "}
-                every year over a plethora of sectors who are invited to our
-                campus for recruitment.
+                to business setup and family sponsorship, we provide
+                comprehensive immigration solutions for professionals, skilled
+                workers, and families seeking opportunities in the Middle East
+                region.
               </p>
-              <button className="bg-gradient-to-r from-green-600 to-yellow-500 hover:from-green-700 hover:to-yellow-600 text-white shadow-xl hover:shadow-2xl transition-all px-8 py-3 rounded-lg text-base font-semibold">
-                Learn More
+              <button className="bg-gradient-to-r from-red-600 to-gray-700 hover:from-red-700 hover:to-gray-800 text-white shadow-xl hover:shadow-2xl transition-all px-8 py-3 rounded-lg text-base font-semibold">
+                Explore Services
               </button>
-              {/* === STATS SECTION: UPDATED TO HORIZONTAL FLEX LAYOUT === */}
+              {/* === STATS SECTION: HORIZONTAL FLEX LAYOUT === */}
               <div className="pt-6 border-t border-slate-200 flex flex-wrap gap-x-8 gap-y-4">
                 <div className="flex items-baseline gap-2">
-                  <div className="text-3xl font-bold text-green-600">200+</div>
+                  <div className="text-3xl font-bold text-red-600">4,000+</div>
                   <div className="text-base text-slate-600 font-medium">
-                    Recruiters
+                    Visas Processed
                   </div>
                 </div>
                 <div className="flex items-baseline gap-2">
-                  <div className="text-3xl font-bold text-green-600">90%</div>
+                  <div className="text-3xl font-bold text-red-600">95%</div>
                   <div className="text-base text-slate-600 font-medium">
-                    Placement Rate
+                    Success Rate
                   </div>
                 </div>
                 <div className="flex items-baseline gap-2">
-                  <div className="text-3xl font-bold text-yellow-600">35+</div>
+                  <div className="text-3xl font-bold text-gray-700">30+</div>
                   <div className="text-base text-slate-600 font-medium">
-                    New Companies Annually
+                    Years Experience
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Logos Grid Section */}
+            {/* Country Flags Grid Section */}
             <div className="space-y-8">
               <div className="grid grid-cols-3 gap-6 md:gap-8">
-                {companyLogos.map((company, index) => (
+                {countryPartners.map((country, index) => (
                   <div
                     key={index}
-                    className="group relative bg-white rounded-2xl border-2 border-slate-200 hover:border-green-400 p-6 flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                    className="group relative bg-white rounded-2xl border-2 border-slate-200 hover:border-red-400 p-6 flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                   >
-                    <div className="relative w-full h-16">
+                    <div className="relative w-full h-16 flex items-center justify-center">
                       <img
-                        src={company.logo}
-                        alt={`${company.name} logo`}
-                        className="object-contain w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300"
+                        src={country.logo}
+                        alt={`${country.name} flag`}
+                        className="object-contain max-w-full max-h-12 transition-all duration-300 group-hover:scale-110"
+                        title={country.name}
                       />
                     </div>
                   </div>
@@ -176,9 +180,10 @@ export default function PartnersSection() {
               </div>
               <div className="text-center">
                 <p className="text-slate-500 text-sm">
-                  And{" "}
-                  <span className="font-bold text-green-600">many more</span>{" "}
-                  leading companies across various sectors.
+                  Specializing in{" "}
+                  <span className="font-bold text-red-600">GCC nations</span>{" "}
+                  and broader Middle East region with expert knowledge of local
+                  immigration laws and requirements.
                 </p>
               </div>
             </div>
