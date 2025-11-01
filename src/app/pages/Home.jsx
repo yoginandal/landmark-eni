@@ -6,7 +6,7 @@ import KeyServices from "../LandingPage/KeyServices";
 import TopDestinations from "../LandingPage/TopDestinations";
 import TestimonialsSection from "../LandingPage/TestimonialsSection";
 import PartnersSection from "../LandingPage/PartnersSection";
-import CTASection from "../LandingPage/CTASection";
+
 import Footer from "../LandingPage/Footer";
 
 export default function Home() {
