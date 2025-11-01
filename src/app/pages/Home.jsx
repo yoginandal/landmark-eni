@@ -21,7 +21,7 @@ export default function Home() {
       <TopDestinations />
       <TestimonialsSection />
       <PartnersSection />
-      <CTASection />
+
       <Footer />
     </div>
   );
