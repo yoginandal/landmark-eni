@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { Instagram, Facebook, Youtube, Twitter, Linkedin } from "lucide-react";
-import { Button } from "../../components/ui/button";
 
 const TopBar = () => {
   const [iconsLoaded, setIconsLoaded] = useState([
@@ -47,11 +45,11 @@ const TopBar = () => {
   ];
 
   return (
-    <div className="hidden px-5 sm:px-8 py-3 bg-linear-to-r from-blue-200 via-blue-50 to-blue-200 md:block">
+    <div className="hidden px-5 sm:px-8 py-3 bg-gradient-to-r from-slate-800 via-slate-900 to-slate-800 md:block border-b border-slate-700">
       <div className="flex flex-wrap items-center justify-between mx-auto text-sm">
         {/* Social Links */}
         <div className="flex items-center gap-4">
-          <span className="text-gray-600">Follow us</span>
+          <span className="text-gray-400 font-medium">Follow us</span>
           <div className="flex gap-3">
             {socialIcons.map((item, index) => (
               <motion.a
@@ -59,7 +57,7 @@ const TopBar = () => {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-100 hover:text-gray-50 bg-gray-800 hover:bg-gray-700 rounded-full p-2 transition-all duration-300 ease-in-out hover:rotate-12 hover:scale-110"
+                className="text-gray-300 hover:text-white bg-red-600 hover:bg-red-700 rounded-full p-2 transition-all duration-300 ease-in-out hover:rotate-12 hover:scale-110 shadow-lg"
                 initial={{ y: -50, opacity: 0 }}
                 animate={
                   iconsLoaded[index]
@@ -78,24 +76,27 @@ const TopBar = () => {
             ))}
           </div>
         </div>
-        <div className="text-gray-600 justify-center items-center bg-slate-50 p-3 gap-2 rounded-full border-none shadow-sm flex">
-          <div className="h-2 w-2 bg-pink-900 rounded-full animate-ping"></div>
-          <marquee className="font-bold" behavior="scroll" direction="left">
+
+        {/* Marquee Announcement */}
+        <div className="text-gray-300 justify-center items-center bg-slate-800/50 backdrop-blur-sm p-3 gap-2 rounded-full border border-red-600/30 shadow-lg flex max-w-xl">
+          <div className="h-2 w-2 bg-red-500 rounded-full animate-ping"></div>
+          <marquee className="font-semibold" behavior="scroll" direction="left">
             Welcome to Landmark ENI - Your trusted partner for Middle East visa
             and immigration services
           </marquee>
         </div>
+
         {/* Contact Info */}
-        <div className="flex flex-wrap items-center gap-6 text-gray-600">
+        <div className="flex flex-wrap items-center gap-4 text-gray-300">
           <a href="/services/visa-ksa">
-            <Button className="text-xs text-white bg-black hover:bg-black/80">
+            <button className="px-5 py-2 text-xs font-semibold text-white bg-red-600 hover:bg-red-700 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105">
               Apply for Visa
-            </Button>
+            </button>
           </a>
           <a href="/contact-us">
-            <Button className="text-xs text-white bg-black hover:bg-black/80">
+            <button className="px-5 py-2 text-xs font-semibold text-white bg-gray-700 hover:bg-gray-600 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105">
               Contact Us
-            </Button>
+            </button>
           </a>
         </div>
       </div>
